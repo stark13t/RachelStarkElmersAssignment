@@ -1,0 +1,893 @@
+t_s, total_kg
+12, 0
+38, -1
+129, 0
+154, 0
+245, 0
+205, -2
+231, -1
+322, 0
+348, 1
+439, 2
+399, 2
+425, 1
+516, 0
+541, -2
+567, 1
+527, 2
+553, -1
+644, 0
+669, 0
+695, -1
+655, -4
+681, 766
+772, 0
+732, 3
+757, -3
+849, -3
+874, -1
+965, -1
+1048, 766
+1113, 1
+1179, 1
+1245, 3
+1310, 1
+1376, -2
+1441, 0
+1507, 3
+1572, 2
+1638, 2
+1703, -2
+1769, 3
+1834, 1
+1900, 1
+1965, 765
+2031, -1
+2096, 765
+2162, 0
+2228, -2
+2293, -4
+2359, 2
+2424, 1
+2490, 1
+2555, 2
+2621, 2
+2686, -2
+2752, 0
+2817, -1
+2883, -2
+2948, -1
+3014, -3
+3080, 3
+3145, 2
+3211, 2
+3276, -1
+3342, 0
+3407, 767
+3473, -1
+3538, -1
+3604, 4
+3669, -1
+3735, -1
+3800, 0
+3866, -1
+3931, 767
+3997, -1
+4063, 0
+4128, 2
+4194, 1
+4259, 2
+4325, -1
+4390, -2
+4456, -1
+4521, 764
+4587, 1
+4652, -1
+4718, 765
+4783, 0
+4849, 765
+4915, 3
+4980, 0
+5046, -1
+5111, 1
+5177, -1
+5242, 2
+5308, 0
+5373, -2
+5439, -1
+5504, -1
+5570, -2
+5635, 764
+5701, 1
+5766, 0
+5832, 52
+5898, -21
+5963, 671
+6029, 726
+6094, 1546
+6160, 1598
+6225, 885
+6291, 935
+6356, 97
+6422, 148
+6487, 200
+6553, 1025
+6618, 948
+6684, 1900
+6750, 1951
+6815, 1110
+6881, 1163
+6946, 962
+7012, 243
+7077, 1194
+7143, 1247
+7208, 1302
+7274, 11082
+7339, 2303
+7405, 1334
+7470, 1389
+7536, 285
+7601, 1238
+7667, 2313
+7733, 1472
+7798, 1523
+7864, 2729
+7929, 1629
+7995, 659
+8060, 1608
+8126, 389
+8191, 435
+8257, 1641
+8322, 2721
+8388, 3032
+8453, 3081
+8519, 1857
+8585, 1905
+8650, 809
+8716, -543
+8781, 1813
+8847, 1863
+8912, 1920
+8978, 4530
+9043, 3179
+9109, 2081
+9174, 2131
+9240, 2188
+9305, -575
+9371, 885
+9436, 942
+9502, 2143
+9568, 3735
+9633, 2248
+9699, 3581
+9764, 3636
+9830, 2411
+9895, 2337
+9961, 2388
+10026, 1036
+10092, 1086
+10157, 1143
+10223, 2476
+10288, 2525
+10354, 3985
+10419, 4043
+10485, 3963
+10551, 2611
+10616, 2666
+10682, 1184
+10747, 1242
+10813, 1289
+10878, 1344
+10944, 2806
+11009, 2730
+11075, 4319
+11140, 4374
+11206, 4423
+11271, 2939
+11337, 2998
+11403, 1387
+11468, 1445
+11534, 1493
+11599, 1418
+11665, 3010
+11730, 4726
+11796, 4779
+11861, 2782
+11927, 4884
+11992, 3273
+12058, 1536
+12123, 1588
+12189, 1517
+12254, 1566
+12320, 5236
+12386, 5288
+12451, 5345
+12517, 5779
+12582, 1615
+12648, 1662
+12713, 1714
+12779, -532
+12844, -481
+12910, 5585
+12975, 5640
+13041, 5693
+13106, 8048
+13172, 5675
+13238, 1757
+13303, 1813
+13369, -565
+13434, -512
+13500, 1974
+13565, 5996
+13631, 8477
+13696, 8532
+13762, 6029
+13827, 6078
+13893, 3574
+13958, -598
+14024, 2016
+14089, 2070
+14155, 2123
+14221, 4733
+14286, 9011
+14352, 6379
+14417, 6432
+14483, 3799
+14548, 3848
+14614, 4290
+14679, 2164
+14745, 4906
+14810, 4959
+14876, 5014
+14941, 4553
+15007, 6784
+15073, 4022
+15138, 4073
+15204, 6941
+15269, 4567
+15335, 7438
+15400, 5184
+15466, 5236
+15531, 2346
+15597, -545
+15662, 1939
+15728, 4294
+15793, 7293
+15859, 10292
+15924, 10344
+15990, 7839
+16056, 4823
+16121, 2440
+16187, -574
+16252, -521
+16318, 2091
+16383, 5212
+16449, 10772
+16514, 10825
+16580, 10881
+16645, 5046
+16711, 1900
+16776, -606
+16842, -556
+16907, -502
+16973, 5951
+17039, 8689
+17104, 8742
+17170, 11356
+17235, 8079
+17301, 4810
+17366, 2047
+17432, 2100
+17497, -534
+17563, 6178
+17628, 6230
+17694, 9095
+17759, 9150
+17825, 2292
+17891, 5032
+17956, 5085
+18022, 2196
+18087, 5711
+18153, 9211
+18218, 6451
+18284, 6506
+18349, 9503
+18415, 2391
+18480, 2442
+18546, 2493
+18611, 5365
+18677, 12584
+18742, 9569
+18808, 9621
+18874, 9673
+18939, 6783
+19005, -589
+19070, 2538
+19136, 2590
+19201, 2648
+19267, 10120
+19332, 13113
+19398, 9976
+19463, 10027
+19529, 6242
+19594, 2450
+19660, -568
+19726, 2684
+19791, 6580
+19857, 10474
+19922, 10527
+19988, 10581
+20053, 10377
+20119, 6461
+20184, 2548
+20250, 2603
+20315, 2659
+20381, 3479
+20446, 10826
+20512, 10881
+20577, 10935
+20643, 6892
+20709, 10140
+20774, 2645
+20840, 2698
+20905, 2753
+20971, 6904
+21036, 11052
+21102, 11229
+21167, 11282
+21233, 7116
+21298, 2943
+21364, 2996
+21429, 2795
+21495, 7074
+21561, 7121
+21626, 11404
+21692, 11455
+21757, 7157
+21823, 7338
+21888, 3043
+21954, 3093
+22019, 3146
+22085, 7551
+22150, 7353
+22216, 11751
+22281, 11805
+22298, 7380
+22323, 7439
+22283, 6720
+22309, 3185
+22400, 7719
+22426, 7775
+22451, 7829
+22543, 8525
+22568, 12157
+22659, 7609
+22619, 7656
+22645, 3107
+22736, 7000
+22762, 11653
+22853, 8000
+22813, 12662
+22838, 12713
+22930, 8032
+22955, 4112
+22981, 7882
+22941, 3201
+22966, 7987
+23058, 8042
+23083, 12066
+23109, 13014
+23069, 13064
+23094, 8256
+23186, 8309
+23146, 4260
+23171, -543
+23262, 8212
+23288, 8267
+23379, 8318
+23339, 17334
+23365, 12392
+23456, 8479
+23482, 8532
+23573, 8585
+23533, -576
+23558, 4469
+23649, 4521
+23675, 8542
+23701, 13588
+23661, 8525
+23686, 12800
+23777, 12799
+23803, 12796
+23829, 12800
+23789, 12797
+23814, 12798
+23905, 12801
+23866, 12804
+23891, 12800
+23982, 12800
+24008, 12797
+24099, 12802
+24059, 12798
+24085, 12803
+24176, 12798
+24201, 12798
+24227, 12797
+24187, 12800
+24213, 12797
+24304, 12800
+24329, 12803
+24355, 12800
+24315, 12801
+24341, 12800
+24432, 12801
+24457, 12800
+24483, 12802
+24574, 12799
+24600, 12802
+24691, 12798
+24651, 12799
+24677, 12802
+24768, 12800
+24793, 12798
+24884, 12800
+24844, 12799
+24870, 12802
+24961, 12798
+24987, 12802
+25012, 12799
+24972, 12802
+24998, 12799
+25089, 12802
+25115, 12801
+25140, 12799
+25100, 12799
+25126, 12797
+25217, 8077
+25177, 12802
+25203, 12799
+25294, 12801
+25320, 12797
+25411, 12799
+25371, 12801
+25396, 12799
+25488, 12802
+25513, 12798
+25604, 12799
+25564, 12799
+25590, 12800
+25681, 12800
+25707, 12802
+25732, 12796
+25692, 12798
+25718, 12798
+25809, 12797
+25835, 12804
+25860, 12800
+25820, 12798
+25846, 12802
+25937, 12801
+25897, 12801
+25923, 12801
+26014, 12800
+26039, 12798
+26131, 12800
+26091, 12800
+26116, 12798
+26207, 12799
+26233, 12800
+26259, 12798
+26219, 12797
+26244, 12798
+26335, 12802
+26361, 12796
+26387, 12802
+26347, 12800
+26372, 12798
+26463, 12800
+26489, 12798
+26515, 12800
+26606, 12801
+26631, 12801
+26722, 12802
+26683, 12799
+26708, 12799
+26799, 12803
+26825, 12802
+26916, 12798
+26876, 12797
+26902, 12798
+26993, 12800
+27018, 12800
+27044, 12799
+27004, 12796
+27030, 12797
+27121, 12799
+27146, 12796
+27172, 12795
+27132, 12799
+27158, 12799
+27249, 12798
+27209, 12800
+27234, 12801
+27326, 12799
+27351, 12798
+27442, 12798
+27402, 12802
+27428, 12798
+27519, 12797
+27545, 12798
+27636, 12801
+27596, 12801
+27622, 12797
+27713, 12799
+27738, 12798
+27764, 12800
+27724, 12797
+27750, 12802
+27841, 12805
+27866, 12797
+27892, 12800
+27852, 12799
+27878, 12801
+27969, 12799
+27929, 12803
+27954, 12797
+28045, 12799
+28071, 12802
+28162, 12798
+28122, 12801
+28148, 12802
+28239, 12802
+28265, 12800
+28290, 12797
+28250, 12798
+28276, 12796
+28367, 12797
+28393, 12800
+28418, 12799
+28378, 7773, total kg is an estimate
+28404, 7775, total kg is an estimate
+28495, 7771, total kg is an estimate
+28521, 7772, total kg is an estimate
+28546, 7774, total kg is an estimate
+28637, 7773, total kg is an estimate
+28663, 7772, total kg is an estimate
+28754, 7770, total kg is an estimate
+28714, 7772, total kg is an estimate
+28740, 7774, total kg is an estimate
+28831, 7776, total kg is an estimate
+28856, 7771, total kg is an estimate
+28948, 7773, total kg is an estimate
+28908, 7775, total kg is an estimate
+28933, 7775, total kg is an estimate
+29024, 7772, total kg is an estimate
+29050, 7770, total kg is an estimate
+29076, 7775, total kg is an estimate
+29036, 7772, total kg is an estimate
+29061, 7775, total kg is an estimate
+29152, 7771, total kg is an estimate
+29178, 7775, total kg is an estimate
+29204, 7774, total kg is an estimate
+29164, 7777, total kg is an estimate
+29189, 7772, total kg is an estimate
+29280, 7773, total kg is an estimate
+29240, 7775, total kg is an estimate
+29266, 7773, total kg is an estimate
+29357, 7770, total kg is an estimate
+29383, 7774, total kg is an estimate
+29474, 7773, total kg is an estimate
+29434, 7772, total kg is an estimate
+29460, 7774, total kg is an estimate
+29551, 7775, total kg is an estimate
+29576, 7774, total kg is an estimate
+29667, 7774, total kg is an estimate
+29628, 7774, total kg is an estimate
+29653, 7773, total kg is an estimate
+29744, 7774, total kg is an estimate
+29770, 7772, total kg is an estimate
+29795, 7772, total kg is an estimate
+29756, 7775, total kg is an estimate
+29781, 7777, total kg is an estimate
+29872, 7776, total kg is an estimate
+29898, 7772, total kg is an estimate
+29923, 7771, total kg is an estimate
+29884, 7772, total kg is an estimate
+29909, 7772, total kg is an estimate
+30000, 7772, total kg is an estimate
+29960, 7776, total kg is an estimate
+29986, 7773, total kg is an estimate
+30077, 7773, total kg is an estimate
+30103, 7777, total kg is an estimate
+30194, 7774, total kg is an estimate
+30154, 7774, total kg is an estimate
+30179, 7774, total kg is an estimate
+30271, 7774, total kg is an estimate
+30296, 7771, total kg is an estimate
+30322, 7775, total kg is an estimate
+30282, 7772, total kg is an estimate
+30307, 7775, total kg is an estimate
+30399, 7773, total kg is an estimate
+30424, 7773, total kg is an estimate
+30450, 7776, total kg is an estimate
+30410, 7771, total kg is an estimate
+30435, 7775, total kg is an estimate
+30527, 7775, total kg is an estimate
+30552, 7775, total kg is an estimate
+30578, 7774, total kg is an estimate
+30669, 7771, total kg is an estimate
+30695, 7773, total kg is an estimate
+30786, 7774, total kg is an estimate
+30746, 7772, total kg is an estimate
+30771, 7772, total kg is an estimate
+30862, 7773, total kg is an estimate
+30888, 7773, total kg is an estimate
+30979, 7774, total kg is an estimate
+30939, 7771, total kg is an estimate
+30965, 7770, total kg is an estimate
+31056, 7772, total kg is an estimate
+31082, 7772, total kg is an estimate
+31107, 7772, total kg is an estimate
+31067, 7771, total kg is an estimate
+31093, 7771, total kg is an estimate
+31184, 7775, total kg is an estimate
+31210, 7770, total kg is an estimate
+31235, 7774, total kg is an estimate
+31195, 7774, total kg is an estimate
+31221, 7774, total kg is an estimate
+31312, 7773, total kg is an estimate
+31272, 7778, total kg is an estimate
+31298, 7774, total kg is an estimate
+31389, 7777, total kg is an estimate
+31414, 7775, total kg is an estimate
+31506, 7775, total kg is an estimate
+31466, 7776, total kg is an estimate
+31491, 7773, total kg is an estimate
+31582, 7771, total kg is an estimate
+31608, 7774, total kg is an estimate
+31699, 7774, total kg is an estimate
+31659, 7776, total kg is an estimate
+31685, 8590, total kg is an estimate
+31776, 4546, total kg is an estimate
+31801, -524, total kg is an estimate
+31827, 3619, total kg is an estimate
+31787, 7510, total kg is an estimate
+31813, 8330, total kg is an estimate
+31904, 8253, total kg is an estimate
+31929, -529, total kg is an estimate
+31955, 3491, total kg is an estimate
+31915, 12111, total kg is an estimate
+31941, 8069, total kg is an estimate
+32032, 3256, total kg is an estimate
+31992, -534, total kg is an estimate
+32018, 8091, total kg is an estimate
+32109, 8015, total kg is an estimate
+32134, 7042, total kg is an estimate
+32225, 3121, total kg is an estimate
+32185, 3045, total kg is an estimate
+32211, 7831, total kg is an estimate
+32302, 7749, total kg is an estimate
+32328, 6774, total kg is an estimate
+32353, 2987, total kg is an estimate
+32313, 7392, total kg is an estimate
+32339, 7572, total kg is an estimate
+32430, 3137, total kg is an estimate
+32456, 3062, total kg is an estimate
+32481, 7210, total kg is an estimate
+32441, 7131, total kg is an estimate
+32467, 2831, total kg is an estimate
+32558, 3004, total kg is an estimate
+32584, 7150, total kg is an estimate
+32609, 6948, total kg is an estimate
+32701, 6868, total kg is an estimate
+32767, 2693, total kg is an estimate
+32832, 2872, total kg is an estimate
+32898, 6890, total kg is an estimate
+32963, 3482, total kg is an estimate
+33029, 2639, total kg is an estimate
+33095, 2558, total kg is an estimate
+33160, 6704, total kg is an estimate
+33226, 6630, total kg is an estimate
+33291, 2714, total kg is an estimate
+33357, 2505, total kg is an estimate
+33422, 6270, total kg is an estimate
+33488, 9388, total kg is an estimate
+33553, 2653, total kg is an estimate
+33619, 2576, total kg is an estimate
+33684, 3141, total kg is an estimate
+33750, 6004, total kg is an estimate
+33815, 2211, total kg is an estimate
+33881, 5077, total kg is an estimate
+33947, 5767, total kg is an estimate
+34012, 2873, total kg is an estimate
+34078, -531, total kg is an estimate
+34143, 2079, total kg is an estimate
+34209, 8143, total kg is an estimate
+34274, 5503, total kg is an estimate
+34340, -461, total kg is an estimate
+34405, -538, total kg is an estimate
+34471, 1942, total kg is an estimate
+34536, 7757, total kg is an estimate
+34602, 7674, total kg is an estimate
+34667, 2093, total kg is an estimate
+34733, -543, total kg is an estimate
+34798, 4883, total kg is an estimate
+34864, 7363, total kg is an estimate
+34930, 4345, total kg is an estimate
+34995, 1964, total kg is an estimate
+35061, 2397, total kg is an estimate
+35126, 2319, total kg is an estimate
+35192, 1724, total kg is an estimate
+35257, 4086, total kg is an estimate
+35323, 6819, total kg is an estimate
+35388, 2261, total kg is an estimate
+35454, 2185, total kg is an estimate
+35519, 1593, total kg is an estimate
+35585, 3821, total kg is an estimate
+35650, 6428, total kg is an estimate
+35716, 2129, total kg is an estimate
+35782, -509, total kg is an estimate
+35847, -582, total kg is an estimate
+35913, 6119, total kg is an estimate
+35978, 6043, total kg is an estimate
+36044, 3532, total kg is an estimate
+36109, -515, total kg is an estimate
+36175, 1840, total kg is an estimate
+36240, 5733, total kg is an estimate
+36306, 5655, total kg is an estimate
+36371, 3270, total kg is an estimate
+36437, -520, total kg is an estimate
+36502, 1707, total kg is an estimate
+36568, 3547, total kg is an estimate
+36633, 3088, total kg is an estimate
+36699, 3007, total kg is an estimate
+36765, 1651, total kg is an estimate
+36830, 1572, total kg is an estimate
+36896, -551, total kg is an estimate
+36961, 2826, total kg is an estimate
+37027, 4794, total kg is an estimate
+37092, 3058, total kg is an estimate
+37158, -480, total kg is an estimate
+37223, -555, total kg is an estimate
+37289, 2948, total kg is an estimate
+37354, 4407, total kg is an estimate
+37420, 2791, total kg is an estimate
+37485, -487, total kg is an estimate
+37551, -562, total kg is an estimate
+37616, 2688, total kg is an estimate
+37682, 4013, total kg is an estimate
+37748, 2272, total kg is an estimate
+37813, 788, total kg is an estimate
+37879, 1097, total kg is an estimate
+37944, 2427, total kg is an estimate
+38010, 811, total kg is an estimate
+38075, 2012, total kg is an estimate
+38141, 2193, total kg is an estimate
+38206, 961, total kg is an estimate
+38272, 755, total kg is an estimate
+38337, 676, total kg is an estimate
+38403, 1752, total kg is an estimate
+38468, 1929, total kg is an estimate
+38534, 1853, total kg is an estimate
+38600, -528, total kg is an estimate
+38665, 546, total kg is an estimate
+38731, 2772, total kg is an estimate
+38796, 1668, total kg is an estimate
+38862, 438, total kg is an estimate
+38927, -533, total kg is an estimate
+38993, 1563, total kg is an estimate
+39058, 1486, total kg is an estimate
+39124, 381, total kg is an estimate
+39189, 305, total kg is an estimate
+39255, 228, total kg is an estimate
+39320, 1302, total kg is an estimate
+39386, 1225, total kg is an estimate
+39451, 1019, total kg is an estimate
+39517, 172, total kg is an estimate
+39583, 989, total kg is an estimate
+39648, 1041, total kg is an estimate
+39714, 198, total kg is an estimate
+39779, 115, total kg is an estimate
+39845, 807, total kg is an estimate
+39910, 728, total kg is an estimate
+39976, 12, total kg is an estimate
+40041, 64, total kg is an estimate
+40107, 63, total kg is an estimate
+40172, 62, total kg is an estimate
+40238, 65, total kg is an estimate
+40303, 61, total kg is an estimate
+40369, 62, total kg is an estimate
+40435, 62, total kg is an estimate
+40500, 64, total kg is an estimate
+40566, 61, total kg is an estimate
+40631, 61, total kg is an estimate
+40697, 61, total kg is an estimate
+40762, 62, total kg is an estimate
+40828, 63, total kg is an estimate
+40893, 62, total kg is an estimate
+40959, 60, total kg is an estimate
+41024, 62, total kg is an estimate
+41090, 63, total kg is an estimate
+41155, 61, total kg is an estimate
+41221, 61, total kg is an estimate
+41286, 64, total kg is an estimate
+41352, 63, total kg is an estimate
+41418, 64, total kg is an estimate
+41483, 62, total kg is an estimate
+41549, 62, total kg is an estimate
+41614, 61, total kg is an estimate
+41680, 63, total kg is an estimate
+41745, 61, total kg is an estimate
+41811, 61, total kg is an estimate
+41876, 62, total kg is an estimate
+41942, 62, total kg is an estimate
+42007, 61, total kg is an estimate
+42073, 65, total kg is an estimate
+42138, 63, total kg is an estimate
+42204, 61, total kg is an estimate
+42270, 63, total kg is an estimate
+42335, 62, total kg is an estimate
+42401, 63, total kg is an estimate
+42466, 60, total kg is an estimate
+42532, 63, total kg is an estimate
+42597, 62, total kg is an estimate
+42663, 60, total kg is an estimate
+42728, 61, total kg is an estimate
+42794, 61, total kg is an estimate
+42859, 63, total kg is an estimate
+42925, 60, total kg is an estimate
+42990, 63, total kg is an estimate
+43056, 61, total kg is an estimate
+43121, 61, total kg is an estimate
+43187, 62, total kg is an estimate
+43253, 61, total kg is an estimate
+43318, 63, total kg is an estimate
+43384, 60, total kg is an estimate
+43449, 61, total kg is an estimate
+43515, 60, total kg is an estimate
+43580, 62, total kg is an estimate
+43646, 61, total kg is an estimate
+43711, 64, total kg is an estimate
+43777, 60, total kg is an estimate
+43842, 64, total kg is an estimate
+43908, 63, total kg is an estimate
+43973, 60, total kg is an estimate
+44039, 61, total kg is an estimate
+44104, 62, total kg is an estimate
+44170, 61, total kg is an estimate
+44236, 61, total kg is an estimate
+44301, 61, total kg is an estimate
+44367, 64, total kg is an estimate
+44432, 63, total kg is an estimate
+44498, 64, total kg is an estimate
+44563, 64, total kg is an estimate
+44629, 62, total kg is an estimate
+44694, 59, total kg is an estimate
+44760, 62, total kg is an estimate
+44825, 60, total kg is an estimate
+44891, 60, total kg is an estimate
+44956, 63, total kg is an estimate
+45022, 60, total kg is an estimate
+45088, 63, total kg is an estimate
+45153, 65, total kg is an estimate
+45219, 61, total kg is an estimate
+45284, 64, total kg is an estimate
+45350, 63, total kg is an estimate
+45415, 62, total kg is an estimate
+45481, 62, total kg is an estimate
+45546, 60, total kg is an estimate
+45612, 63, total kg is an estimate
+45677, 63, total kg is an estimate
+45743, 63, total kg is an estimate
+45808, 63, total kg is an estimate
+45874, 62, total kg is an estimate
+45939, 59, total kg is an estimate
+46005, 60, total kg is an estimate
+46071, 63, total kg is an estimate
+46136, 64, total kg is an estimate
+46202, 63, total kg is an estimate
+46267, 63, total kg is an estimate
+46333, 62, total kg is an estimate
+46398, 61, total kg is an estimate
+46464, 63, total kg is an estimate
+46529, 63, total kg is an estimate
