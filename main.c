@@ -24,6 +24,7 @@ void read_data(char fileName[], char outfileName[]) {
     }
     if (fo == NULL) {
         printf("Could not open file %s", outfileName);
+        return 1;
     }
 
     int8_t sync[3]; 
@@ -106,10 +107,6 @@ void read_data(char fileName[], char outfileName[]) {
             corruptFrameCount ++;
         }
 
-
-        //frame thoughts: sequence can tell us if a frame was dropped
-        //time will be in timestamp
-        //payload has the weight
         frameCount ++;
         }
     }
@@ -119,6 +116,7 @@ void read_data(char fileName[], char outfileName[]) {
 
     printf("Summary:\n - number of frames receive: %d\n", frameCount);
     printf("- frames that were likely corrupt: %d\n", corruptFrameCount);
+    printf("- frames that were likely dropped: %d\n");
     printf("- cart unloading time range: %d - %d");
 }
 
