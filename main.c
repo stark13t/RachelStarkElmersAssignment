@@ -20,11 +20,11 @@ void read_data(char fileName[], char outfileName[]) {
 
     if (f==NULL) {
         printf("Could not open file %s", fileName);
-        return 1;
+        return;
     }
     if (fo == NULL) {
         printf("Could not open file %s", outfileName);
-        return 1;
+        return;
     }
 
     int8_t sync[3]; 
@@ -61,7 +61,7 @@ void read_data(char fileName[], char outfileName[]) {
         else {
 
         //first question: what type of message is this?
-        if (frame[0] == 0x01) { //is weight
+        if (frame[0] == 0x01 && length == 12) { //is weight
 
             timeMs = (frame[3] | frame[2] << 8);
 
@@ -94,7 +94,7 @@ void read_data(char fileName[], char outfileName[]) {
             }
   
         }
-        else if (frame[0] == 0x02) { //status
+        else if (frame[0] == 0x02 && length == 13) { //status
             //faulted raw count should not be trusted
             //5th byte is faults
             faults = frame[4];
@@ -107,8 +107,8 @@ void read_data(char fileName[], char outfileName[]) {
             corruptFrameCount ++;
         }
 
-        frameCount ++;
         }
+        frameCount ++;
     }
     
     fclose(f);

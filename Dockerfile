@@ -4,6 +4,8 @@ WORKDIR /app
 
 COPY main.c .
 
-RUN gcc -Wall -Wextra -O2 -o main main.c
+COPY capture.bin .
+
+RUN gcc -o main main.c
 
 CMD ["./main"]
