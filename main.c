@@ -34,7 +34,7 @@ void read_data(char fileName[], char outfileName[]) {
     int16_t weight1, weight2, weight3, weight4;
 
     uint16_t timeMs = 0;
-    uint16_t timeSec = 0;
+    float timeSec = 0;
     uint16_t timeMultiple = 0;
 
     int8_t faults;
@@ -63,7 +63,7 @@ void read_data(char fileName[], char outfileName[]) {
         //first question: what type of message is this?
         if (frame[0] == 0x01 && length == 12) { //is weight
 
-            timeMs = (frame[3] | frame[2] << 8);
+            timeMs = (frame[3] << 8| frame[2]);
 
             if (timeMs + (timeSec*1000) - timeMultiple*MAX_TIME > MAX_TIME) { //checking to see if the time wrapped
                 timeMultiple ++;
@@ -87,7 +87,7 @@ void read_data(char fileName[], char outfileName[]) {
             weight4 = getWeight(combineBytes(frame[10], frame[11]), offset4);
             total_kg = weight1+weight2+weight3+weight4;
             if ((faults & 0b00001111) == 0x00) {
-                fprintf(fo, "%d, %d\n", timeSec, total_kg);
+                fprintf(fo, "%.1f, %d\n", timeSec, total_kg);
             }
             else {
                 fprintf(fo, "%d, %d, total kg is an estimate\n", timeSec, total_kg);
