@@ -7,7 +7,7 @@
 
 static void read_data(char fileName[], char outfileName[]);
 int16_t getWeight(int16_t rawData, int16_t offset);
-int16_t combineBytes(int8_t byte1, int8_t byte2);
+int16_t combineBytes(uint8_t byte1, uint8_t byte2);
 
 int main(void) {
     remove("dataOut.csv");
@@ -27,8 +27,8 @@ void read_data(char fileName[], char outfileName[]) {
         return;
     }
 
-    int8_t sync[3]; 
-    int8_t frame[MAX_FRAME_SIZE - 3];
+    uint8_t sync[3]; 
+    uint8_t frame[MAX_FRAME_SIZE - 3];
 
     int16_t offset1, offset2, offset3, offset4;
     int16_t weight1, weight2, weight3, weight4;
@@ -51,7 +51,7 @@ void read_data(char fileName[], char outfileName[]) {
     while (endOfFile != 1) {
         int syncRead = fread(sync, 1, 3, f); //fread(where to, bytes/element, num elements, stream)
 
-        int8_t length = sync[2];
+        uint8_t length = sync[2];
 
         int frameRead = fread(frame, 1, length+1, f); //read in rest of the frame, +1 because of checksum
 
@@ -63,13 +63,13 @@ void read_data(char fileName[], char outfileName[]) {
         //first question: what type of message is this?
         if (frame[0] == 0x01 && length == 12) { //is weight
 
-            timeMs = (frame[3] << 8| frame[2]);
+            timeMs = (frame[3] << 8| frame[2]); 
 
             if (timeMs + (timeSec*1000) - timeMultiple*MAX_TIME > MAX_TIME) { //checking to see if the time wrapped
                 timeMultiple ++;
             }
 
-            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000; //ms and wraps
+            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000; //ms and wraps, supposed to be seconds from the first frame, first frame should be 0
 
             if ((faults & 0x01) != 1) {
                 weight1 = getWeight(combineBytes(frame[4], frame[5]), offset1);
@@ -125,7 +125,7 @@ int16_t getWeight(int16_t rawData, int16_t offset) {
    return (rawData-offset)*0.5;
 }
 
-int16_t combineBytes(int8_t byte1, int8_t byte2) {
-    int16_t combined = byte2 << 8 | byte1;
+int16_t combineBytes(uint8_t byte1, uint8_t byte2) {
+    int16_t combined = byte1 | byte2 << 8;
     return combined;
 }
