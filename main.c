@@ -6,7 +6,7 @@
 #define MAX_TIME 65535 //point where time wraps
 
 static void read_data(char fileName[], char outfileName[]);
-int16_t getWeight(int16_t rawData, int16_t offset);
+float getWeight(int16_t rawData, int16_t offset);
 int16_t combineBytes(uint8_t byte1, uint8_t byte2);
 
 int main(void) {
@@ -31,9 +31,11 @@ void read_data(char fileName[], char outfileName[]) {
     uint8_t frame[MAX_FRAME_SIZE - 3];
 
     int16_t offset1, offset2, offset3, offset4;
-    int16_t weight1, weight2, weight3, weight4;
+    float weight1, weight2, weight3, weight4;
 
     uint16_t timeMs = 0;
+    uint16_t initialTime = 0;
+    uint8_t initialTimeSet = 0;
     float timeSec = 0;
     uint16_t timeMultiple = 0;
 
@@ -55,15 +57,21 @@ void read_data(char fileName[], char outfileName[]) {
 
         int frameRead = fread(frame, 1, length+1, f); //read in rest of the frame, +1 because of checksum
 
+        if (initialTimeSet == 0) {
+            initialTime = frame[3] << 8 | frame[2];
+            initialTimeSet = 1;
+        }
+
         if (syncRead != 3 | frameRead < MIN_FRAME_SIZE - 3) {
             endOfFile = 1;
         }
+
         else {
 
         //first question: what type of message is this?
         if (frame[0] == 0x01 && length == 12) { //is weight
 
-            timeMs = (frame[3] << 8| frame[2]); 
+            timeMs = (frame[3] << 8| frame[2]) - initialTime; 
 
             if (timeMs + (timeSec*1000) - timeMultiple*MAX_TIME > MAX_TIME) { //checking to see if the time wrapped
                 timeMultiple ++;
@@ -81,16 +89,15 @@ void read_data(char fileName[], char outfileName[]) {
                 weight3 = getWeight(combineBytes(frame[8], frame[9]), offset3);
             }
             if ((faults & 0x08) != 8) {
-                weight3 = getWeight(combineBytes(frame[8], frame[9]), offset3);
+                weight4 = getWeight(combineBytes(frame[10], frame[11]), offset4);
             }
 
-            weight4 = getWeight(combineBytes(frame[10], frame[11]), offset4);
             total_kg = weight1+weight2+weight3+weight4;
             if ((faults & 0b00001111) == 0x00) {
                 fprintf(fo, "%.1f, %d\n", timeSec, total_kg);
             }
             else {
-                fprintf(fo, "%d, %d, total kg is an estimate\n", timeSec, total_kg);
+                fprintf(fo, "%.1f, %d, total kg is an estimate\n", timeSec, total_kg);
             }
   
         }
@@ -107,8 +114,9 @@ void read_data(char fileName[], char outfileName[]) {
             corruptFrameCount ++;
         }
 
-        }
         frameCount ++;
+        }
+
     }
     
     fclose(f);
@@ -120,9 +128,8 @@ void read_data(char fileName[], char outfileName[]) {
     printf("- cart unloading time range: %d - %d");
 }
 
-int16_t getWeight(int16_t rawData, int16_t offset) {    
-   // int32_t weight_kg = (raw_count - zero_offset) * 0.5;
-   return (rawData-offset)*0.5;
+float getWeight(int16_t rawData, int16_t offset) { 
+    return (rawData-offset)*0.5;
 }
 
 int16_t combineBytes(uint8_t byte1, uint8_t byte2) {
