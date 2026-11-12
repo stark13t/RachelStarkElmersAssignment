@@ -77,7 +77,7 @@ void read_data(char fileName[], char outfileName[]) {
                 timeMultiple ++;
             }
 
-            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000; //ms and wraps, supposed to be seconds from the first frame, first frame should be 0
+            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0; //ms and wraps, supposed to be seconds from the first frame, first frame should be 0
 
             if ((faults & 0x01) != 1) {
                 weight1 = getWeight(combineBytes(frame[4], frame[5]), offset1);
