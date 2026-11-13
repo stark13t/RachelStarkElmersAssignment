@@ -44,8 +44,14 @@ static void test_faults(void) {
     expect_equal("Weight 2", w2.currWeight, 500);
 }
 
+static void test_checksum(void) {
+    uint8_t frame[12] = {0x01, 0x07, 0x10, 0x27, 0xD0, 0x04, 0xC8, 0x03, 0x86, 0x05, 0x3D, 0x04, 0x98};
+    expect_equal("checksum (92)", checkSum(13, frame), 0x98);
+}
+
 int main(void) {
     test_worked_example_frame();
+    test_checksum();
     test_faults();
     printf("%s\n", failures == 0 ? "all passed" : "some checks failed");
     return failures == 0 ? 0 : 1;

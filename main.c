@@ -15,6 +15,7 @@ static void read_data(char fileName[], char outfileName[]);
 float getWeight(int16_t rawData, int16_t offset);
 int16_t combineBytes(uint8_t byte1, uint8_t byte2);
 void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w);
+uint8_t checkSum(uint8_t length, uint8_t frame[]);
 
 int main(void) {
     remove("dataOut.csv");
@@ -74,16 +75,21 @@ void read_data(char fileName[], char outfileName[]) {
             initialTimeSet = 1;
         }
 
-        if (frame[1] - sequence > 1) {
-            droppedFrames ++;
-        }
-        
-        sequence = frame[1];
+        uint8_t cs = checkSum(length, frame);
 
         if (syncRead != 3 | frameRead < MIN_FRAME_SIZE - 3) {
             endOfFile = 1;
         }
+        else if (frame[length] != cs) {
+            corruptFrameCount ++;
+        }
         else {
+
+            if (frame[1] - sequence > 1) {
+                droppedFrames ++;
+            }
+        
+        sequence = frame[1];
 
         //first question: what type of message is this?
         if (frame[0] == 0x01 && length == 12) { //is weight
@@ -151,4 +157,12 @@ void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w) {
 int16_t combineBytes(uint8_t byte1, uint8_t byte2) {
     int16_t combined = byte1 | byte2 << 8;
     return combined;
+}
+
+uint8_t checkSum(uint8_t length, uint8_t frame[]) {
+    int8_t calculatedSum = length;
+    for (int i = 0; i < length; i++ ) {
+        calculatedSum = calculatedSum^frame[i];
+    }
+    return calculatedSum;
 }
