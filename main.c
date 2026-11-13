@@ -5,9 +5,16 @@
 #define MIN_FRAME_SIZE 16
 #define MAX_TIME 65535 //point where time wraps
 
+struct weight {
+    uint8_t mask;
+    float currWeight;
+    int16_t offset;
+};
+
 static void read_data(char fileName[], char outfileName[]);
 float getWeight(int16_t rawData, int16_t offset);
 int16_t combineBytes(uint8_t byte1, uint8_t byte2);
+void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w);
 
 int main(void) {
     remove("dataOut.csv");
@@ -30,8 +37,12 @@ void read_data(char fileName[], char outfileName[]) {
     uint8_t sync[3]; 
     uint8_t frame[MAX_FRAME_SIZE - 3];
 
-    int16_t offset1, offset2, offset3, offset4;
-    float weight1, weight2, weight3, weight4;
+    struct weight weight1 = {0b00000001, 0, 0};
+    struct weight weight2 = {0b00000010, 0, 0};
+    struct weight weight3 = {0b00000100, 0, 0};
+    struct weight weight4 = {0b00001000, 0, 0};
+
+    uint8_t sequence;
 
     uint16_t timeMs = 0;
     uint16_t initialTime = 0;
@@ -47,6 +58,7 @@ void read_data(char fileName[], char outfileName[]) {
 
     uint16_t frameCount = 0;
     uint16_t corruptFrameCount = 0;
+    uint16_t droppedFrames = 0;
 
     uint8_t endOfFile = 0;
 
@@ -62,10 +74,15 @@ void read_data(char fileName[], char outfileName[]) {
             initialTimeSet = 1;
         }
 
+        if (frame[1] - sequence > 1) {
+            droppedFrames ++;
+        }
+        
+        sequence = frame[1];
+
         if (syncRead != 3 | frameRead < MIN_FRAME_SIZE - 3) {
             endOfFile = 1;
         }
-
         else {
 
         //first question: what type of message is this?
@@ -77,22 +94,15 @@ void read_data(char fileName[], char outfileName[]) {
                 timeMultiple ++;
             }
 
-            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0; //ms and wraps, supposed to be seconds from the first frame, first frame should be 0
+            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0; //ms and wraps
 
-            if ((faults & 0x01) != 1) {
-                weight1 = getWeight(combineBytes(frame[4], frame[5]), offset1);
-            }
-            if ((faults & 0x02) != 2) {
-                weight2 = getWeight(combineBytes(frame[6], frame[7]), offset2);
-            }
-            if ((faults & 0x04) != 4) {
-                weight3 = getWeight(combineBytes(frame[8], frame[9]), offset3);
-            }
-            if ((faults & 0x08) != 8) {
-                weight4 = getWeight(combineBytes(frame[10], frame[11]), offset4);
-            }
+            updateWeight(faults, combineBytes(frame[4],frame[5]), &weight1);
+            updateWeight(faults, combineBytes(frame[6],frame[7]), &weight2);
+            updateWeight(faults, combineBytes(frame[8],frame[9]), &weight3);
+            updateWeight(faults, combineBytes(frame[10],frame[11]), &weight4);
 
-            total_kg = weight1+weight2+weight3+weight4;
+            total_kg = weight1.currWeight+weight2.currWeight+weight3.currWeight+weight4.currWeight;
+
             if ((faults & 0b00001111) == 0x00) {
                 fprintf(fo, "%.1f, %d\n", timeSec, total_kg);
             }
@@ -105,10 +115,10 @@ void read_data(char fileName[], char outfileName[]) {
             //faulted raw count should not be trusted
             //5th byte is faults
             faults = frame[4];
-            offset1 = combineBytes(frame[5], frame[6]);
-            offset2 = combineBytes(frame[7], frame[8]);
-            offset3 = combineBytes(frame[9], frame[10]);
-            offset4 = combineBytes(frame[11], frame[12]);
+            weight1.offset = combineBytes(frame[5], frame[6]);
+            weight2.offset = combineBytes(frame[7], frame[8]);
+            weight3.offset = combineBytes(frame[9], frame[10]);
+            weight4.offset = combineBytes(frame[11], frame[12]);
         }
         else {
             corruptFrameCount ++;
@@ -124,12 +134,18 @@ void read_data(char fileName[], char outfileName[]) {
 
     printf("Summary:\n - number of frames receive: %d\n", frameCount);
     printf("- frames that were likely corrupt: %d\n", corruptFrameCount);
-    printf("- frames that were likely dropped: %d\n");
+    printf("- frames that were likely dropped: %d\n", droppedFrames);
     printf("- cart unloading time range: %d - %d");
 }
 
 float getWeight(int16_t rawData, int16_t offset) { 
     return (rawData-offset)*0.5;
+}
+
+void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w) {
+    if ((faults & w->mask) == 0) {
+        w->currWeight = getWeight(rawWeight, w->offset);
+    }
 }
 
 int16_t combineBytes(uint8_t byte1, uint8_t byte2) {
