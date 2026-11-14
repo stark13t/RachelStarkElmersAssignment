@@ -4,6 +4,7 @@
 #define MAX_FRAME_SIZE 17 //max size of frame including sync and length
 #define MIN_FRAME_SIZE 16
 #define MAX_TIME 65535 //point where time wraps
+#define DROP_AMOUNT 50 //point where drop is significant enough to assume cart is emptying
 
 struct weight {
     uint8_t mask;
@@ -50,6 +51,8 @@ void read_data(char fileName[], char outfileName[]) {
     uint8_t initialTimeSet = 0;
     float timeSec = 0;
     uint16_t timeMultiple = 0;
+    float cartUnloadStart = 0;
+    float cartUnloadStop = 0;
 
     int8_t faults;
 
@@ -107,7 +110,15 @@ void read_data(char fileName[], char outfileName[]) {
             updateWeight(faults, combineBytes(frame[8],frame[9]), &weight3, total_kg);
             updateWeight(faults, combineBytes(frame[10],frame[11]), &weight4, total_kg);
 
+            int32_t past_kg = total_kg;
             total_kg = weight1.currWeight+weight2.currWeight+weight3.currWeight+weight4.currWeight;
+
+            if ((total_kg < past_kg - DROP_AMOUNT) && cartUnloadStart < 1) {
+                cartUnloadStart = timeSec;
+            }
+            if (cartUnloadStart > 0 && total_kg < 1) {
+                cartUnloadStop = timeSec;
+            }
 
             if ((faults & 0b00001111) == 0x00) {
                 fprintf(fo, "%.1f, %d\n", timeSec, total_kg);
@@ -141,7 +152,7 @@ void read_data(char fileName[], char outfileName[]) {
     printf("Summary:\n - number of frames receive: %d\n", frameCount);
     printf("- frames that were likely corrupt: %d\n", corruptFrameCount);
     printf("- frames that were likely dropped: %d\n", droppedFrames);
-    printf("- cart unloading time range: %d - %d");
+    printf("- cart unloading time range: %.1fs - %.1fs", cartUnloadStart, cartUnloadStop);
 }
 
 float getWeight(int16_t rawData, int16_t offset) { 
