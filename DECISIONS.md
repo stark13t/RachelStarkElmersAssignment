@@ -7,20 +7,16 @@ I built a program that reads in the binary data frames from capture.bin, process
 - I initially planned to read and divide all the data as one step, test it as a second step and write it to the csv file as a third sepearate step, and have each step divided into its own function. I rejected this idea because of how much data there was. Storing the frames in memory would have taken a large amount of storage, and it would have been slow since I would be going through all of the data three times. Instead I test and store the data as it comes in.
 
 ## Things in the brief or data that didn't add up, and what I did
-- Initially the bytes being little endian confused me, because I assumed that that meant the bits were little endian, so the frame 0x12 would become 0x48. This yeilded confusing data, and after reading the brief more carefully I corrected the approach. Now 0x12 is read as 0x21.
+- The current data coming out has negative weights. I have checked that the bytes are being processed correctly, which removed some negative weights but not all of them. I checked some of the remaining negative weights by hand and the ones I checked appear to be coming from the data itself. Since all the negative values are near zero, I assumed they are coming from noise with the data itself, and chose to leave the negative weights in dataOut.csv.
 
 ## Tools I used
 I used chat gpt to set up the Dockerfile program and trouble shoot problems I encountered with git. I tried to also use it to test if I was reading in bits correctly, but chat gpt was repeatedly incorrect or circular when asked about bit logic.
 
 ## Tests
-- I tested to make sure the length and type bytes matched, because reading a weight frame as a status frame would change the faults and offsets, making all future weights incorrect until a true status frame is received. I also tested to make sure each scale was not faulted before reading in the weight from that cell. If there is a fault, the program does not update that cell's weight and marks the total kg as an estimate.
+- I tested to ensure my program is adding up the checksum as expected using the example frame provided in the handout. I also tested that the weight calculations for both a faulted and unfaulted cell were as expected.
 
 Would test next:
-    - check that checksum matches with the received frame
-    - check to make sure any large jumps in time are accompanied by a jump in sequence and true in future frames so that time multiple is not falsely incremented.
-    - check that sync is always at the start of sync[]
+    - test that the time is correctly calculated before and after the time bytes wrap back to 0
 
 ## With another day I would
-- With another day I would complete the print out at the end of the program. I would check sequence to see if it was increasing by more than 1 to find when frames were dropped, and find when the total weight begins decreasing for the cart unloading time range.
-
-I would also add more tests to check if the frames are corrupted, as described in the testing section.
+- With another day I would update the way I am reading in the frames to protect against lengths that are not expected. I would also create a check to ensure that the sync bytes are always where they are expected to be, and work on reducing the amount that the readdata function is responsable for, so the program is easier to test.
