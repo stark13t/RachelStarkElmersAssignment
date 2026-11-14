@@ -14,7 +14,7 @@ struct weight {
 static void read_data(char fileName[], char outfileName[]);
 float getWeight(int16_t rawData, int16_t offset);
 int16_t combineBytes(uint8_t byte1, uint8_t byte2);
-void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w);
+void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w, int32_t total_kg);
 uint8_t checkSum(uint8_t length, uint8_t frame[]);
 
 int main(void) {
@@ -84,7 +84,6 @@ void read_data(char fileName[], char outfileName[]) {
             corruptFrameCount ++;
         }
         else {
-
             if (frame[1] - sequence > 1) {
                 droppedFrames = droppedFrames + frame[1] - sequence - 1;
             }
@@ -101,12 +100,12 @@ void read_data(char fileName[], char outfileName[]) {
 
             timeMs = (frame[3] << 8| frame[2]) - initialTime; 
 
-            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0; //ms and wraps
+            timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0;
 
-            updateWeight(faults, combineBytes(frame[4],frame[5]), &weight1);
-            updateWeight(faults, combineBytes(frame[6],frame[7]), &weight2);
-            updateWeight(faults, combineBytes(frame[8],frame[9]), &weight3);
-            updateWeight(faults, combineBytes(frame[10],frame[11]), &weight4);
+            updateWeight(faults, combineBytes(frame[4],frame[5]), &weight1, total_kg);
+            updateWeight(faults, combineBytes(frame[6],frame[7]), &weight2, total_kg);
+            updateWeight(faults, combineBytes(frame[8],frame[9]), &weight3, total_kg);
+            updateWeight(faults, combineBytes(frame[10],frame[11]), &weight4, total_kg);
 
             total_kg = weight1.currWeight+weight2.currWeight+weight3.currWeight+weight4.currWeight;
 
@@ -149,9 +148,12 @@ float getWeight(int16_t rawData, int16_t offset) {
     return (rawData-offset)*0.5;
 }
 
-void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w) {
+void updateWeight(uint8_t faults, int16_t rawWeight, struct weight *w, int32_t total_kg) {
     if ((faults & w->mask) == 0) {
         w->currWeight = getWeight(rawWeight, w->offset);
+    }
+    else {
+        w ->currWeight = total_kg/4;
     }
 }
 
