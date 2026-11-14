@@ -86,19 +86,20 @@ void read_data(char fileName[], char outfileName[]) {
         else {
 
             if (frame[1] - sequence > 1) {
-                droppedFrames ++;
+                droppedFrames = droppedFrames + frame[1] - sequence - 1;
             }
         
         sequence = frame[1];
 
         //first question: what type of message is this?
         if (frame[0] == 0x01 && length == 12) { //is weight
+            uint16_t incomingTime = combineBytes(frame[2], frame[3]) -initialTime;
 
-            timeMs = (frame[3] << 8| frame[2]) - initialTime; 
-
-            if (timeMs + (timeSec*1000) - timeMultiple*MAX_TIME > MAX_TIME) { //checking to see if the time wrapped
+            if (incomingTime < timeMs) {   
                 timeMultiple ++;
             }
+
+            timeMs = (frame[3] << 8| frame[2]) - initialTime; 
 
             timeSec = (timeMultiple*MAX_TIME + timeMs)/1000.0; //ms and wraps
 
